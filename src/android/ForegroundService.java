@@ -245,7 +245,7 @@ public class ForegroundService extends Service {
         int resId = res.getIdentifier(icon, type, pkgName);
 
         if (resId == 0) {
-            resId = res.getIdentifier("notificaiton_icon", type, pkgName);
+            resId = res.getIdentifier("icon", type, pkgName);
         }
 
         return resId;
