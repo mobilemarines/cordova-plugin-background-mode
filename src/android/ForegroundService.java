@@ -131,8 +131,8 @@ public class ForegroundService extends Service {
 	}
 	
 	private void startMyOwnForeground() {
-		String NOTIFICATION_CHANNEL_ID = "com.yourapp.id";
-		String channelName = "My Background Service";
+		String NOTIFICATION_CHANNEL_ID = "com.transporeon.tpm.app";
+		String channelName = "transporeon-app";
 		NotificationChannel chan = new NotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, NotificationManager.IMPORTANCE_NONE);
 		chan.setLightColor(Color.BLUE);
 		chan.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
