@@ -50,6 +50,9 @@ public class ForegroundService extends Service {
 	// Fixed ID for the 'foreground' notification
 	public static final int NOTIFICATION_ID = -574543954;
 	
+	public static final String NOTIFICATION_CHANNEL_ID_SERVICE = "de.appplant.cordova.plugin.background";
+	public static final String NOTIFICATION_CHANNEL_ID_INFO = "com.package.download_info";
+	
 	// Default title of the background notification
 	private static final String NOTIFICATION_TITLE =
 			"App is running in background";
@@ -115,10 +118,14 @@ public class ForegroundService extends Service {
 		boolean isSilent = settings.optBoolean("silent", false);
 		
 		if (!isSilent) {
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-				startMyOwnForeground();
-			else
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+				NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+				nm.createNotificationChannel(new NotificationChannel(NOTIFICATION_CHANNEL_ID_SERVICE, "App Service", NotificationManager.IMPORTANCE_DEFAULT));
+				nm.createNotificationChannel(new NotificationChannel(NOTIFICATION_CHANNEL_ID_INFO, "Download Info", NotificationManager.IMPORTANCE_DEFAULT));
+			}
+			else {
 				startForeground(NOTIFICATION_ID, makeNotification());
+			}
 		}
 		
 		PowerManager powerMgr = (PowerManager)
