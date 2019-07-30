@@ -53,14 +53,14 @@ public class ForegroundService extends Service {
 	
 	// Default title of the background notification
 	private static final String NOTIFICATION_TITLE =
-			"App is running in background";
+			"Transporeon App";
 	
 	// Default text of the background notification
 	private static final String NOTIFICATION_TEXT =
-			"Doing heavy tasks.";
+			"Tracking position for Eta calculation";
 	
 	// Default icon of the background notification
-	private static final String NOTIFICATION_ICON = "icon";
+	private static final String NOTIFICATION_ICON = "notifcation_icon";
 	
 	// Binder given to clients
 	private final IBinder binder = new ForegroundBinder();
