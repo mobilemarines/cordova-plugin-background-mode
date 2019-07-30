@@ -40,7 +40,6 @@ import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
-import android.util.Log;
 
 /**
  * Puts the service in a foreground state, where the system considers it to be
@@ -62,8 +61,6 @@ public class ForegroundService extends Service {
 	
 	// Default icon of the background notification
 	private static final String NOTIFICATION_ICON = "notification_icon";
-	
-	public static final String LOG_TAG = "BackgroundMode.ForegroundService";
 	
 	// Binder given to clients
 	private final IBinder binder = new ForegroundBinder();
@@ -256,9 +253,9 @@ public class ForegroundService extends Service {
 	 */
 	private int getIconResId(JSONObject settings) {
 		String icon = settings.optString("", NOTIFICATION_ICON);
-		Log.d(LOG_TAG, icon);
-		Log.d(LOG_TAG, icon);
-		Log.d(LOG_TAG, icon);
+		Log.d(icon);
+		Log.d(icon);
+		Log.d(icon);
 		
 		int resId = getIconResId(icon, "mipmap");
 		
