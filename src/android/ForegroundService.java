@@ -252,7 +252,7 @@ public class ForegroundService extends Service {
 	 * @param settings A JSON dict containing the icon name.
 	 */
 	private int getIconResId(JSONObject settings) {
-		String icon = settings.optString("", NOTIFICATION_ICON);
+		String icon = settings.optString("icon", NOTIFICATION_ICON);
 		
 		int resId = getIconResId(icon, "mipmap");
 		
@@ -277,7 +277,7 @@ public class ForegroundService extends Service {
 		int resId = res.getIdentifier(icon, type, pkgName);
 		
 		if (resId == 0) {
-			resId = res.getIdentifier("icon", type, pkgName);
+			resId = res.getIdentifier("notification_icon", type, pkgName);
 		}
 		
 		return resId;
